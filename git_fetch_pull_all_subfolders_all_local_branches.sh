@@ -59,6 +59,7 @@ do
         echo -e "${GREEN}git describe --tag${NC}"
         git describe --tag
         echo -e "${BLUE}Done${NC}"
+        echo
       done
       git checkout "$CURRENT_BRANCH" 
     else
