@@ -7,11 +7,13 @@
 
 ## Differences
 
-| | `git_fetch_pull_all_subfolders.sh` | `git_fetch_pull_all_subfolders_all_local_branches.sh` |
+| :deciduous_tree: | `git_fetch_pull_all_subfolders.sh` | `git_fetch_pull_all_subfolders_all_local_branches.sh` |
 | ------ | ------ | ------ |
 | Fetch | `--all --prune --prune-tags` | `--all --prune --prune-tags` |
 | Branche | Active branch, if remote branch exists `git ls-remote origin [BRANCH]` | All branches found by `git branch --format='%(refname:short)`, if remote branch exists `git ls-remote origin [BRANCH]`, at the end check out the active branch. |
+| Status | | |
 | Pull | If no modification, checked by `git status --porcelain` | If no modification, checked by `git status --porcelain` |
+| Describe | `--tag` | `--tag` |
 
 ## Usage
 
