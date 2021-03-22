@@ -41,8 +41,8 @@ do
     if [ -d "$REPOSITORIES/$REPO/.git" ]
     then
       cd "$REPOSITORIES/$REPO"
-      echo -e "${GREEN}git fetch --all${NC}"
-      git fetch --all
+      echo -e "${GREEN}git fetch --all --prune${NC}"
+      git fetch --all --prune
       echo -e "${GREEN}git status${NC}"
       git status
       if [[ -z "$(git status --porcelain)" ]]
