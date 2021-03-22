@@ -7,8 +7,8 @@
 ## Differences :eyes:
 | | `git_fetch_pull_all_subfolders.sh` | `git_fetch_pull_all_subfolders_all_local_branches.sh` |
 | ------ | ------ | ------ |
-| Fetch | `--all` | `--all` |
-| Branche | Active branch | All branches found by `git branch --format='%(refname:short)`, at the end checkout the active branch.|
+| Fetch | `--all --prune` | `--all --prune` |
+| Branche | Active branch | All branches found by `git branch --format='%(refname:short)`, at the end check out the active branch.|
 | Pull | If no modification, checked by `git status --porcelain` | If no modification, checked by `git status --porcelain` |
 
 ## Usage :alien:
@@ -20,7 +20,7 @@ Put the file in the parent folder `[PATH]` of your repos:
 > [PATH/REPO2]
 > [PATH/REPO3]
 ```
-Double clic on it :godmode:
+Double click on it :godmode:
 
 ### With the parameter
 Put the file where you want and when you call it add the `[PATH]` parameter:
@@ -31,4 +31,4 @@ Put the file where you want and when you call it add the `[PATH]` parameter:
 > [PATH/REPO3]
 ```
 
-Launch with following command: `[PATH_TO_FILE]\git_fetch_pull_all_subfolders.sh [PATH]` :hurtrealbad:
+Launch the following command: `[PATH_TO_FILE]\git_fetch_pull_all_subfolders.sh [PATH]` :hurtrealbad:
