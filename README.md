@@ -42,3 +42,5 @@ Put the file where you want and when you call it add the `[PATH]` parameter:
 ```
 
 Launch the following command: `[PATH_TO_FILE]\git_fetch_pull_all_subfolders.sh [PATH]` :hurtrealbad:
+
+I added `AutoGit.bat` to show how to run it in multiple `[PATH]` at the same time.
