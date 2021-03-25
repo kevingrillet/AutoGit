@@ -70,7 +70,7 @@ do
     else
       echo -e "${YELLOW}Skipping because it doesn't look like it has a .git folder.${NC}"
     fi
-    echo -e "${BLUE}Done at ${RED}`date`${NC}"
+    echo -e "${BLUE}Done ${WHITE}$REPOSITORIES/$REPO${BLUE} at ${RED}`date`${NC}"
     echo
   fi
 done
