@@ -73,7 +73,7 @@ function log_update {
 }
 
 # my_exec <COMMAND>
-# just to hide the output if verbose if off
+# hide the output if verbose is false
 function my_exec {
   if [ $VERBOSE = true ] ;
   then
