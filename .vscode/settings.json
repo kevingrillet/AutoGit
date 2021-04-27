@@ -1,0 +1,15 @@
+{
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#333"        // rulers color
+    },
+    "[shellscript]": {
+        "editor.insertSpaces": true,
+        "editor.rulers": [
+            48,                                 // default comment
+            80,                                 // maximum code length, 2nd comment line
+            120                                 // maximum line length
+        ],
+        "editor.tabSize": 4,
+        "files.eol": "\n"
+    }
+}
