@@ -13,7 +13,7 @@
         "files.eol": "\n"
     },
     "shellcheck.customArgs": [
-        "-x"
+        "-x"                                    // https://github.com/koalaman/shellcheck/wiki/SC1091
     ],
     "shellcheck.exclude": [
         "2034",                                 // https://github.com/koalaman/shellcheck/wiki/SC2034
