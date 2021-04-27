@@ -11,5 +11,13 @@
         ],
         "editor.tabSize": 4,
         "files.eol": "\n"
-    }
+    },
+    "shellcheck.customArgs": [
+        "-x"
+    ],
+    "shellcheck.exclude": [
+        "2034",                                 // https://github.com/koalaman/shellcheck/wiki/SC2034
+        "2119",                                 // https://github.com/koalaman/shellcheck/wiki/SC2119
+        "2154"                                  // https://github.com/koalaman/shellcheck/wiki/SC2154
+    ]
 }

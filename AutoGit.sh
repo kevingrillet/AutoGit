@@ -161,7 +161,7 @@ do
     echo -e "${BLUE}Updating folder ${WHITE}$REPOSITORIES/$REPO${BLUE} at ${RED}$(date)${NC}"
     if [ -d "$REPOSITORIES/$REPO/.git" ]
     then
-      cd "$REPOSITORIES/$REPO"
+      cd "$REPOSITORIES/$REPO" || exit
       output "${GREEN}git fetch --all --prune --prune-tags${NC}"
       my_exec git fetch --all --prune --prune-tags
       CURRENT_BRANCH=$(git branch --show-current)
