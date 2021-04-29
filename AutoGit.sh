@@ -59,6 +59,9 @@ function log_update {
           fi
           # https://www.putorius.net/column-command-usage-examples.html
         done < "$REPOSITORIES/temp.csv" | column -s"," -t -N STATUS,REPO,BRANCH,TAG -R TAG
+        # https://stackoverflow.com/questions/20151601/color-escape-codes-in-pretty-printed-columns
+        # WIP: not working properly atm :/
+        # | echo -e "$(sed -e "s/add/${GREEN}add${NC}/g" -e "s/update/${RED}update${NC}/g")"
 
         my_exec mv "$REPOSITORIES/temp.csv" "$REPOSITORIES/log.csv"
       else
@@ -119,6 +122,7 @@ function update_branch {
     my_exec git describe --tag
     log "$1" "$2" "$(git describe --tag)"
   else
+    log "$1" "$2" "no remote"
     output "${YELLOW}Skipping because it doesn't look like it has a remote branch.${NC}"
   fi
   output "${BLUE}Done${NC}"
