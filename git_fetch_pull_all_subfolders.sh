@@ -22,7 +22,7 @@ WHITE='\033[1;37m'
 IFS=$'\n'
 
 function pause(){
-  read -s -n 1 -p "Press any key to continue..."
+  read -s -r -n 1 -p "Press any key to continue..."
   echo ""
 }
 
@@ -37,14 +37,14 @@ for REPO in `ls "$REPOSITORIES/"`
 do
   if [ -d "$REPOSITORIES/$REPO" ]
   then
-    echo -e "${BLUE}Updating folder ${WHITE}$REPOSITORIES/$REPO${BLUE} at ${RED}`date`${NC}"
+    echo -e "${BLUE}Updating folder ${WHITE}$REPOSITORIES/$REPO${BLUE} at ${RED}$(date)${NC}"
     if [ -d "$REPOSITORIES/$REPO/.git" ]
     then
-      cd "$REPOSITORIES/$REPO"
+      cd "$REPOSITORIES/$REPO" || exit
       echo -e "${GREEN}git fetch --all --prune --prune-tags${NC}"
       git fetch --all --prune --prune-tags
       CURRENT_BRANCH=`git branch --show-current`
-      if [[ -n "$(git ls-remote origin ${CURRENT_BRANCH})" ]]
+      if [[ -n "$(git ls-remote origin "${CURRENT_BRANCH}")" ]]
       then
         echo -e "${GREEN}git status${NC}"
         git status
@@ -61,7 +61,7 @@ do
     else
       echo -e "${YELLOW}Skipping because it doesn't look like it has a .git folder.${NC}"
     fi
-    echo -e "${BLUE}Done ${WHITE}$REPOSITORIES/$REPO${BLUE} at ${RED}`date`${NC}"
+    echo -e "${BLUE}Done ${WHITE}$REPOSITORIES/$REPO${BLUE} at ${RED}$(date)${NC}"
     echo
   fi
 done
