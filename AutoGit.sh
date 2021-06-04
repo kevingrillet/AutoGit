@@ -78,8 +78,7 @@ function log_update {
 # my_exec <COMMAND>
 # hide the output if verbose is false
 function my_exec {
-  if [ $VERBOSE = true ] ;
-  then
+  if [ $VERBOSE = true ]; then
     "$@"
   else
     "$@" &>/dev/null
@@ -95,8 +94,7 @@ function pause {
 # output
 # echo if verbose
 function output {
-  if [ $VERBOSE = true ] ;
-  then
+  if [ $VERBOSE = true ]; then
     echo -e "$1"
   fi
 }
@@ -108,13 +106,11 @@ function output {
 function update_branch {
   LOCAL_BRANCH=$2
   output "${BLUE}Updating branch ${WHITE}$LOCAL_BRANCH ${NC}"
-  if [ -n "$(git ls-remote origin "$LOCAL_BRANCH")" ] ;
-  then
+  if [ -n "$(git ls-remote origin "$LOCAL_BRANCH")" ]; then
     my_exec git checkout "$BRANCH"
     output "${GREEN}git status${NC}"
     my_exec git status
-    if [ -z "$(git status --porcelain)" ] ;
-    then
+    if [ -z "$(git status --porcelain)" ]; then
       output "${GREEN}git pull${NC}"
       my_exec git pull
     fi
@@ -158,20 +154,17 @@ do
   esac
 done
 
-for REPO in `ls "$REPOSITORIES/"`
+for REPO in $(ls "$REPOSITORIES/")
 do
-  if [ -d "$REPOSITORIES/$REPO" ]
-  then
+  if [ -d "$REPOSITORIES/$REPO" ]; then
     echo -e "${BLUE}Updating folder ${WHITE}$REPOSITORIES/$REPO${BLUE} at ${RED}$(date)${NC}"
-    if [ -d "$REPOSITORIES/$REPO/.git" ]
-    then
+    if [ -d "$REPOSITORIES/$REPO/.git" ]; then
       cd "$REPOSITORIES/$REPO" || exit
       output "${GREEN}git fetch --all --prune --prune-tags${NC}"
       my_exec git fetch --all --prune --prune-tags
       CURRENT_BRANCH=$(git branch --show-current)
-      if [ $DOALLBRANCHES = true ]
-      then
-        for BRANCH in `git branch --format='%(refname:short)'`
+      if [ $DOALLBRANCHES = true ]; then
+        for BRANCH in $(git branch --format='%(refname:short)')
         do
           update_branch "$REPOSITORIES/$REPO" "$BRANCH"
         done
