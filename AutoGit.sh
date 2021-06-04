@@ -114,9 +114,13 @@ function update_branch {
       output "${GREEN}git pull${NC}"
       my_exec git pull
     fi
-    output "${GREEN}git describe --tag${NC}"
-    my_exec git describe --tag
-    log "$1" "$2" "$(git describe --tag)"
+    if [ -n "$(git tag)" ]; then
+      output "${GREEN}git describe --tag${NC}"
+      my_exec git describe --tag
+      log "$1" "$2" "$(git describe --tag)"
+    else
+      log "$1" "$2" "no tag"
+    fi
   else
     log "$1" "$2" "no remote"
     output "${YELLOW}Skipping because it doesn't look like it has a remote branch.${NC}"
