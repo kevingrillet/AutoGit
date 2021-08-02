@@ -47,11 +47,11 @@ function log_update {
     if [ -f "$REPOSITORIES/temp.csv" ]; then
       if [ -f "$REPOSITORIES/log.csv" ]; then
         while read -r line ; do
-          found=$(grep "${line%,*}" "$REPOSITORIES/log.csv")
+          found=$(grep "${line%,*}," "$REPOSITORIES/log.csv")
           if [ -z "$found" ]; then
             echo -e "add,$line"
           else
-            if [ "${found##,*}" = "${line##,*}" ]; then
+            if [ "${found%,*}" = "${line%,*}" ]; then
               echo -e ",$line"
             else
               echo -e "update,$line"
