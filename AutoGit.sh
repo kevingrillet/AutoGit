@@ -51,7 +51,7 @@ function log_update {
           if [ -z "$found" ]; then
             echo -e "add,$line"
           else
-            if [ "${found%,*}" = "${line%,*}" ]; then
+            if [ "${found#,*}" = "${line#,*}" ]; then
               echo -e ",$line"
             else
               echo -e "update,$line"
